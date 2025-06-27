@@ -1,26 +1,22 @@
 [tool.poetry]
-name = "ons-python-template-simple"
+name = "python-test-3"
 version = "0.1.0"
-description = "A simplified Python starter template designed to jump start your next Python project"
-authors = ["ONSdigital"]
+description = "python-test-3"
+authors = ["ONS-Innovation"]
 license = "MIT"
 readme = "README.md"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.12"
-copier = "^9.4.1"
+python = "^3.10"
+pandas = "^2.3.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3.3"
-pytest-xdist = "^3.6.1"
-ruff = "^0.12.0"
-pytest-cov = "^6.2.1"
 bandit = "^1.8.5"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+pytest = "^8.4.1"
+pytest-xdist = "^3.7.0"
+ruff = "^0.12.1"
+pytest-cov = "^6.2.1"
 
 [tool.ruff]
 line-length = 120
@@ -45,10 +41,6 @@ select = [
     "D",      # pydocstyle - Enforce existing docstrings only
     "C90",    # mccabe
     "RUF",    # Ruff specific rules
-
-    # PL - Pylint is only partially supported, we also use the pylint tool to catch all the rules.
-    # It is enabled here to take advantage of the ruff's speed.
-    "PL",
 ]
 
 ignore = [
@@ -58,8 +50,6 @@ ignore = [
     "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107",
     # indentation contains tabs
     "W191",
-    # Allow assert to be detected
-    "S101"
 ]
 
 [tool.ruff.lint.pydocstyle]
@@ -74,3 +64,8 @@ convention = "google"
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
+line-ending = "auto"
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+skips = ["B101"]  # Skip assert_used test

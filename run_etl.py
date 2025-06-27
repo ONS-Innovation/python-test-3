@@ -1,10 +1,8 @@
-{%- import 'macros.jinja' as macros with context -%}
-
 """
 Example script demonstrating how to use the ETL pipeline.
 """
 
-from {{ module_name }} import ETLPipeline, run_etl
+from python_test_3 import ETLPipeline, run_etl
 import logging
 
 # Configure logging
@@ -70,7 +68,7 @@ def main():
     # Method 3: Using individual components
     logger.info("3. Using individual ETL components...")
     
-    from {{ module_name }} import DataExtractor, DataTransformer, DataLoader
+    from python_test_3 import DataExtractor, DataTransformer, DataLoader
     
     # Extract
     extractor = DataExtractor()
